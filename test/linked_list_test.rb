@@ -98,22 +98,21 @@ class LinkedListTest < Minitest::Test
     assert_equal "hi ", list.find(1, 1)
     assert_equal "hi yo", list.find(1, 2)
     assert_equal "hey hi yo", list.find(0, 2)
-
     #refute list.find(1, 3)
   end
 
   def test_include_works
-    skip
     list = LinkedList.new
     list.append("wow")
     list.append("eh")
+    list.append("duh")
 
-    assert list.includes?("wow")
-    refute list.includes?("buns")
+    assert list.include?("wow")
+    assert list.include?("eh")
+    refute list.include?("buns")
   end
 
   def test_pop_works
-    skip
     list = LinkedList.new
     list.append("one")
     list.append("two")

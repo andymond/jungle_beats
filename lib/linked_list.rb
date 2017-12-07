@@ -95,18 +95,28 @@ class LinkedList
   end
 
   def include?(data)
-    #iterate through list
-    #if current_node.next_node.data == data
-    #return true
-    #else
-    #return false
+    current_node = @head
+    until current_node.data == data || current_node.next_node.nil?
+        current_node = current_node.next_node
+    end
+    if current_node.data == data
+      true
+    else
+      false
+    end
   end
 
   def pop
-    #if current_node.next_node.next_node == nil
-    #current.next_node = nil
+    current_node = @head
+    until current_node.next_node.next_node.nil?
+      current_node = current_node.next_node
+    end
+    popped = current_node.next_node.data
+    if current_node.next_node.next_node == nil
+      current_node.next_node = nil
+    end
+    popped
   end
-
 
 
 end

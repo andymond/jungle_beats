@@ -1,25 +1,28 @@
-require "./lib/linked_list.rb"
+require "./lib/linked_list"
 require "pry"
 
 class JungleBeat
 
-  attr_accessor :list
+  attr_reader :list
 
   def initialize
     @list = LinkedList.new
   end
 
   def append(data)
-    #accepts string, splits string to pass to linked list
+    data = data.to_s.split(" ")
+      data.each do |word|
+        @list.append(word)
+      end
+    data.join(' ')
   end
 
   def count
-    #is linkedlist a subclass? can we call linkedlists methods simply because we instantiate linked list?
+    @list.count
   end
 
   def play
-    # here, we generate string content to use
-    # `say #{list.to_string}
+    `say -r 5 #{list.to_string} `
   end
 
   def validate
