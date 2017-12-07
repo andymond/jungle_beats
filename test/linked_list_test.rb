@@ -3,6 +3,7 @@ require "./lib/node"
 require "minitest/autorun"
 require "minitest/pride"
 require 'pry'
+
 class LinkedListTest < Minitest::Test
 
   def test_list_exists
@@ -82,6 +83,7 @@ class LinkedListTest < Minitest::Test
     list.append("poop")
     list.append("slurp")
     list.insert(1, "ugh")
+    #check second time, test more edge cases
 
     assert_equal "hey", list.head.data
     assert_equal "ugh", list.head.next_node.data

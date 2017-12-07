@@ -20,8 +20,10 @@ class LinkedList
     sounds << current_node.data
   end
 
+# def is node empty?
+
   def count
-    if @head == nil
+    if @head.nil?
       count = 0
     else
       count = 1
