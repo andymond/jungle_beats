@@ -36,7 +36,7 @@ class JungleBeat
   end
 
   def play
-    `say -r 500 -v Boing #{list.to_string} `
+    `say -r 5 -v Boing #{list.to_string} `
   end
 
   def validate(data)
@@ -55,10 +55,17 @@ class JungleBeat
   #call in play, set play parameters to defaults
 
   def rate(data)
-    
+    '-r #{data.to_i}'
   end
 
   def voice(data)
-
+    voicelist = ['Alex', 'Fred', 'Boing', 'Bubbles', 'Cellos', 'Deranged', 'Good News', 'Hysterical', 'Pipe Organ', 'Trinoids']
+    voicelist.find |voice|
+      if data == voice
+        '-v #{voice}'
+      else
+        return  '-v Alex'
+        puts "I don't know that voice, but here's Alex instead, enjoi ;)"
+      end
   end
 end
